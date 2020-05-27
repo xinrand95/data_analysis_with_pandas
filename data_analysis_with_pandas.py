@@ -24,13 +24,12 @@ print(all_data_df)
 
 
 #filter the dataframe to only get Line # = 1 
-line1_df = all_data_df.loc[all_data_df["Line #"] == 1])
+line1_df = all_data_df.loc[all_data_df["Line #"] == 1]
 
 #grouping by operators to at the average amount of time
 #assgin column name to the new column as 'Avg Amount' and sort descending base on it
 #get the best operator in line 1 with the highest averge productivity
-productivity_df = all_data_df.groupby("Operator")['Amount'].agg('mean').reset_index(name ='Avg Amount').sort_values("Total Amount", ascending = False)
+productivity_df = all_data_df.groupby("Operator")["Amount"].agg('mean').reset_index(name ="Avg Amount").sort_values("Avg Amount", ascending = False)
 print(productivity_df)
 
-#output excel
 productivity_df.to_excel("productivity_line1.xlsx")
